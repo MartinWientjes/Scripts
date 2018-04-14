@@ -1,0 +1,2 @@
+#Command to Backup Foto Library 
+sudo rsync -aE --recursive --progress --times --delete /Users/ /Volumes/R5_Backup_iMac/Users/

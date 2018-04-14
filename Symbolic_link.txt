@@ -1,0 +1,4 @@
+cd /usr/local/bin/
+sudo ln -s /Applications/Julia.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
+ls -Al
+

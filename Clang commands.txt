@@ -1,0 +1,36 @@
+clang commands
+======================================================================
+file:///Users/martin/mw/Developer/boost_1_63_0/more/getting_started/unix-variants.html
+
+DYLD_LIBRARY_PATH
+======================================================================
+http://stackoverflow.com/questions/14888668/how-to-set-dyld-library-path-in-xcode
+
+Setting DYLD_LIBRARY_PATH isn't the best way to solve this problem. It's working around the fact that you've misinformed dyld as to where to find your libraries.
+
+If you run otool -L MyApp.app/Contents/MacOS/MyApp you'll see the paths to the libraries that MyApp wants to load. If any library isn't found at the specified path then dyld will look for the library in the locations specified by DYLD_FALLBACK_LIBRARY_PATH. Setting DYLD_LIBRARY_PATH causes dyld to look for the library in the given locations ahead of the path that the otool command above returned.
+
+The best way to solve this problem is to have your application specify the correct location of the libraries to start with so that setting DYLD_LIBRARY_PATH is not necessary. To do this you need to do the following:
+
+Set the library identifier of each of the libraries that you're bundling inside your application to an @rpath-relative value. You can do this using install_name_tool -id @rpath/libFoo.dylib libFoo.dylib.
+Add a Copy Files build phase to copy the libraries in to your application wrapper. MyApp.app/Contents/Frameworks is a typical location. MyApp.app/Contents/Resources should be avoided since binaries aren't resources in the usual sense of the term.
+Specify a run path search path when linking your application. This gives the linker a list of paths to use to resolve any @rpath variables that it encounters in any load commands. If you're copying the libraries to MyApp.app/Contents/Frameworks you'll want to specify a run path search path of @loader_path/../Frameworks. You can do this via the LD_RUNPATH_SEARCH_PATHS (Runpath Search Paths) configuration setting in Xcode on your application target.
+After doing all this you should be able to re-run the otool command mentioned above and see that the paths to your library are using @rpath-relative paths. You should then be able to run otool -lV MyApp.app/Contents/MacOS/MyApp and see an LC_RPATH load command specified with a value of @loader_path/../Frameworks. Finally, you should be able to run your application and see that it finds the libraries within its Frameworks directory without having DYLD_LIBRARY_PATH set!
+
+======================================================================
+Works!!! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+clang++ -v -O /Users/martin/mw/Developer/c++/path_info.cpp -std=c++14 -stdlib=libc++ -I /usr/local/Cellar/boost/1.63.0/include -L /usr/local/Cellar/boost/1.63.0/lib -o /Users/martin/mw/Developer/c++/path_info -l boost_filesystem -l boost_system
+
+clang++ -v -O -std=c++14 -stdlib=libc++ -I /usr/local/Cellar/boost/1.64.0_1/include -L /usr/local/Cellar/boost/1.64.0_1/lib Test1.cpp -o Test1; ./Test1
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+clang++ -v -std=c++14 -stdlib=libc++ source.cpp -I /usr/local/Cellar/boost/1.63.0/include -L /usr/local/Cellar/boost/1.63.0/lib -o source
+clang++ -v -std=c++14 -stdlib=libc++ tut3.cpp -I /usr/local/Cellar/boost/1.63.0/include -L /usr/local/Cellar/boost/1.63.0/lib -o tut3
+clang++ -v -std=c++14 -stdlib=libstdc++ -I /usr/local/Cellar/boost/1.63.0/include -L /usr/local/Cellar/boost/1.63.0/lib /Users/martin/mw/Developer/c++/Boost_sample1.cpp
+
+/usr/local/Cellar/boost/1.63.0
+	/usr/local/Cellar/boost/1.63.0/include
+	/usr/local/Cellar/boost/1.63.0/lib
+======================================================================
+
+http://stackoverflow.com/questions/29542337/undefined-symbols-for-architecture-x86-64-for-boost-c

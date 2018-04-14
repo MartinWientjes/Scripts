@@ -1,0 +1,4 @@
+windows script 
+
+https://stackoverflow.com/questions/20530996/aliases-in-windows-command-prompt
+doskey julia=C:\Users\marti\AppData\Local\Julia-0.6.0\bin\julia.exe $*

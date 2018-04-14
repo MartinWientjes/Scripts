@@ -1,0 +1,11 @@
+  MongoDB commands.txt
+
+
+
+  cd MongoDB
+  mongod --dbpath .
+  pwd
+  mongod --dbpath /Users/martin/mw/developer/MongoDB/Data
+  mongo
+  mongoimport --db test --collection restaurants --drop --file ~/downloads/primer-dataset.json
+  

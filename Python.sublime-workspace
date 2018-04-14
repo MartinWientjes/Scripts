@@ -1,0 +1,493 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"L1c",
+				"fileL1c03"
+			],
+			[
+				"my_list",
+				"my_list	statement"
+			],
+			[
+				"__",
+				"__package__	instance"
+			],
+			[
+				"println",
+				"printlnv	printlnv"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/anaconda/lib/python3.5/os.py",
+			"settings":
+			{
+				"buffer_size": 36970,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/MagicPython/settings/sublime/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/MagicPython/settings/sublime/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/MagicPython/settings/sublime/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 207.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"PackageResourceViewer: Open Resource",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"Snippet: ",
+				"Snippet: for"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"set syntax: c++",
+				"Set Syntax: C++11"
+			],
+			[
+				"",
+				"Set Syntax: Julia"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"Package Control:",
+				"Package Control: Remove Package"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 190.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"print(\"Hello\")",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/anaconda/lib/python3.5"
+	],
+	"file_history":
+	[
+		"/Users/martin/Documents/MW/PythonProjects/Find_CR2/Temp/CR2 weggooien.py",
+		"/Users/martin/Documents/MW/PythonProjects/Find_CR2/Find_CR2.py",
+		"/Users/martin/Documents/MW/RSync_source/rsync/INSTALL",
+		"/Users/martin/Desktop/Julia/FindCR2.jl",
+		"/Users/martin/Desktop/Julia/Find_CR2.py",
+		"/Users/martin/Desktop/Scripts/Commands.txt",
+		"/Users/martin/Desktop/Julia/Find Commands.txt",
+		"/Users/martin/Desktop/Scripts/Cleanup.command",
+		"/Users/martin/Desktop/Scripts/CreateDirStruct.sh",
+		"/Users/martin/Documents/MW/PycharmProjects/LanScanner.py",
+		"/Users/martin/Desktop/Julia/Omron SourceForge",
+		"/Users/martin/Desktop/Julia/rsync.txt",
+		"/Users/martin/Desktop/Scripts/read USB Port.py",
+		"/Users/martin/Downloads/libomron-0.9.0/include/libomron/omron.h",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/IJulia/julia-build.sublime-build",
+		"/Users/martin/Documents/MW/PycharmProjects/Rsync Commands.txt",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/IJulia/Sublime-IJulia.sublime-settings",
+		"/Users/martin/Desktop/Julia/Update.jl",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/User/SublimeREPL.sublime-settings",
+		"/Users/martin/Documents/MW/PycharmProjects/TextWrangler/programma1.cpp",
+		"/Users/martin/Documents/MW/PycharmProjects/Euler Project/Problem 35.py",
+		"/Users/martin/Documents/MW/PycharmProjects/Euler Project/Problem 18.py",
+		"/Users/martin/Documents/MW/PycharmProjects/Euler Project/Problem 19.py",
+		"/Users/martin/Documents/MW/PycharmProjects/Euler Project/Problem 20.py",
+		"/Users/martin/Documents/MW/PycharmProjects/Euler Project/Problem 44.py",
+		"/Users/martin/Documents/MW/PycharmProjects/Bokeh/sample1.py",
+		"/Users/martin/Documents/MW/PycharmProjects/Bokeh/Sample2.py",
+		"/Users/martin/Documents/MW/PycharmProjects/Diversen/comprehensions.py",
+		"/Users/martin/Documents/MW/PythonProjects/PILLOW Sample1.py",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/PackageResourceViewer/README.md",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/Python/Python.sublime-build",
+		"/Users/martin/Documents/MW/PycharmProjects/Find_executable.py",
+		"/Users/martin/Desktop/Julia/Memoryview.py",
+		"/Users/martin/Desktop/Julia/Euler problem 77.jl",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/Users/martin/Documents/MW/PycharmProjects/Diversen/Integriteitscheck.py",
+		"/Users/martin/Documents/MW/PycharmProjects/Euler Project/Find_CR2.py",
+		"/Users/martin/Desktop/Julia/TestHash.jl",
+		"/Users/martin/Desktop/Julia/Queens.jl",
+		"/Users/martin/Desktop/Julia/test1.jl",
+		"/Users/martin/Documents/MW/PythonProjects/Euler Problems/Julia Euler .jl",
+		"/Users/martin/Documents/MW/PycharmProjects/Matplotlib/Sample01.py",
+		"/Users/martin/Desktop/Julia/Project Euler Problem 77.py",
+		"/Users/martin/Library/Application Support/Sublime Text 3/Packages/User/Python.sublime-build",
+		"/Users/martin/Desktop/Julia/learnjulia.jl",
+		"/Users/martin/Desktop/Julia/Namen.jl",
+		"/Users/martin/Desktop/Julia/test.jl",
+		"/Users/martin/Desktop/Julia/julia.epub",
+		"/Users/martin/Desktop/Euler problem 77.c++"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"tough",
+			"#"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"touch"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/anaconda/lib/python3.5/os.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36970,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								80,
+								82
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1125,
+										1128
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										1,
+										4
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"side_bar_folders_auto_load_folder": 1,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 10871.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CppYCM.2":
+	{
+		"height": 0.0
+	},
+	"output.CppYCM.3":
+	{
+		"height": 0.0
+	},
+	"output.CppYCM.4":
+	{
+		"height": 0.0
+	},
+	"output.CppYCM.5":
+	{
+		"height": 0.0
+	},
+	"output.CppYCM.6":
+	{
+		"height": 0.0
+	},
+	"output.autopep8":
+	{
+		"height": 142.0
+	},
+	"output.exec":
+	{
+		"height": 339.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+	"project": "Python.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"python3.5/os.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Desktop/Julia/MW.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 307.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

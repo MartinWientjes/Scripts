@@ -1,0 +1,215 @@
+Default Top 50 Terminal Commands
+1) 2D Dock
+This quite a popular hack for the people running Leopard and don’t like the 3D feel. It changes the 3D dock to a flat 2D version. To enter copy and past the following code.
+defaults write com.apple.dock no-glass -boolean YES
+killall Dock
+
+2) Gradient Behind A Stack Item
+One of my favourite hacks that enables you to put a small gradient behind an icon. I think this should be enabled by default.
+defaults write com.apple.dock mouse-over-hilte-stack -boolean YES
+killall Dock
+
+3) Add A Message To The Login Window
+This little Terminal command enables you to add a message of your choice to the Login window. Pretty cool and deserved a screenshot if I new how to take on while not logged in. Warning it’s a sudo command which can be dangerous.
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Your Message"
+Replace “Your Message” with the message of your choice, don’t make it to long. If you want to revert it do the following.
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText ""
+
+4) Add An Exposè Button To The Desktop
+If you have reconfigured the F9 and F10 keys to something different you may want to use exposè. This hack adds a bigish blue button onto the desktop to enable you to use exposè. Clicking on it shows all the windows from one application (F10 default), option clicking it shows all windows (F9 default).
+
+defaults write com.apple.dock wvous-floater -bool YES
+killall Dock
+
+5) Address Book Debug Menu
+If you have some trouble with Address Book it may be useful to open up the debug menu as well as this use some of the hidden features. Make sure address book is closed first before applying the code. If you want to revert it remove YES in the string.
+
+defaults write com.apple.addressbook ABShowDebugMenu -bool YES
+
+6) Increase Dock Magnification Size
+This little hack lets you increase the size of the magnification of the dock icons. Don’t go past 512.
+defaults write com.apple.dock largesize -int 512
+
+7) Increase Desktop Icon Size
+If you want massive icons on you desktop this little hack lets you increase the icons to 512 pixels x 512 pixels. This is massive, may slow down on older machines. I don’t think it goes larger than 512.
+defaults write com.apple.finder DesktopViewOptions -dict IconSize -integer 512
+killall Finder
+
+8) Changing the Format Of Screen Shots
+If you use the screen shot function, you may want to change the format of the images, this is not easily done normally. Where jpg is in the code you can change this to the format your want, png bmp gif etc. You need to log out and back in again, or restart for the changes to take effect.
+defaults write com.apple.screencapture type jpg
+
+9) Change The Login Picture
+If you get a bored of the space picture used on the login screen, you can change it with this little bit of code. Change the file location in the second half of the string to the exact file location of your chosen picture.
+defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture "/System/Library/CoreServices/Finder.app/Contents/Resources/vortex.png"
+
+10) Change The Loading Bar In Safari To A Pie Chart
+This is a Safari 3 hack, so it might not work. This changes the blue bar that goes across the address bar into a small blue pie chart. Insert false instead of true to reverse.
+defaults write com.apple.Safari DebugUsePieProgressIndicator -bool true
+
+11) Clear The Open With Menu
+If you right click on a file you can open it with many applications. Sometimes your OS can get a little confused and list many applications. This is to clear this list and start again. The code below is all on one line.
+/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/
+LaunchServices.framework/Versions/A/Support/lsregister
+-kill -r -domain local -domain system -domain user
+
+12) Change The Delay When Dragging Windows In Spaces
+This simple hack changes the delay time it takes to drag windows around in spaces, its currently set to 0.75
+defaults write com.apple.dock workspaces-edge-delay -float 0.5
+
+13) Disable Dashboard
+If you don’t want or like the dashboard running you can disable it. Change YES to NO to enable it again.
+defaults write com.apple.dashboard mcx-disabled -boolean YES
+killall Dock
+
+14) Enable Double Scroll Arrows
+This little hack enables the double arrow set for up and down, left or right, to be at both ends of the scroll bar. Handy if you like the double arrows. Use System Preferences to reset.
+defaults write “Apple Global Domain” AppleScrollBarVariant DoubleBoth
+
+15) Disable Tooltips In Safari
+This quick little hack for Safari that removes the tooltips you get when you hover over certain elements.
+defaults write com.apple.Safari WebKitShowsURLsInToolTips 0
+
+16) Increase The Dock Size
+Command #6 enables you to change the magnification. This command enables you to change the size of the dock. Use the sliders in System Preferences to reduce this size. Don’t go larger 256.
+defaults write com.apple.dock tilesize -int 256
+
+17) Disable the Crash Dialog Box
+This disables the quit dialog box when an application crashes. Type prompt to enable again.
+defaults write com.apple.CrashReporter DialogType none
+
+18)Drag A Widget Onto The Desktop
+Probably one of the coolest hacks. This command enables widgets to be placed onto the desktop. Drag a widget around and press F12 to drag it onto the desktop. Repeat the process again to drag a widget back onto the dashboard. This may need you to log off or restart for it to take effect.
+defaults write com.apple.dashboard devmode YES
+
+19) Enable Debug Menu In Safari
+Adding debug menus to programs is great as you can access a whole range of features. This one is for Safari.
+defaults write com.apple.Safari IncludeDebugMenu 1
+
+20) Enable The Path View In Finder
+One of may favourite hacks as it lets you see the current path of the Finder window you are in. Its great if you work with a lot of windows.
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+
+21)Enable Time Machine On Unsupported Drives
+Another favourite hack of mine, simply because it enable Time Machine to work on unsupported drives such as a NAS. Use with caution as it is unsupported.
+defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1
+
+22) Enable Web Inspector
+This is a very detailed web inspector that enables you to find out specific information about a page. It is accessible through the debug menu but this enables you to use it without. You can quickly access it through right-click.
+defaults write com.apple.Safari WebKitDeveloperExtras -bool true
+
+23) Enable Debug in iCal
+Another debug menu (I like debug menus) this time its for iCal. You need to restart iCal for the changes to take effect.
+defaults write com.apple.iCal IncludeDebugMenu YES
+
+24) Enable Quit In Finder
+This is a very useful command for anyone who does a lot of fiddling and needs to quit Finder.
+defaults write com.apple.finder QuitMenuItem -bool YES
+killall Finder
+
+25) Force Mail To Display In Plain Text
+If you have problems with HTML emails or you just want emails to be displayed in plain text use the following command. You need to restart Mail for the changes to take effect. Replace with false to revert.
+defaults write com.apple.mail PreferPlainText -bool TRUE
+
+26) Increase Time Machine Backups
+If you do a lot of work on you Mac, and you want time machine to back up more frequently you need to change the value. It is in seconds. The default is set to an hour which is 3600. Change this value to suit, half and hour is 1800 seconds.
+sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int 1800
+
+27) Kill A Process
+Sometimes you just need a process to stop running. If you want to kill it in Terminal with out using Activity Monitor, find the process ID (In Activity Monitor) and then use the following command. Only really useful if you don’t like much clicking or are writing a program.
+kill PID 478
+
+28) Let Terminal Talk
+If you are bored one day you can get Terminal to quickly talk anything back to you using the voice engine. Replace hello with anything you want.
+say hello
+
+29) Make Hidden Applications Icons Transparent
+If you hide a lot of applications you can make there icons transparent in the dock. A very good visual clue.
+defaults write com.apple.Dock showhidden -bool YES
+killall Dock
+
+30) Make The Dock Spring Loaded
+Makes the dock spring loaded so you can open files or windows from within the dock.
+defaults write com.apple.dock enable-spring-load-actions-on-all-items -boolean YES
+
+31) Recent Applications Stack
+This command creates a new stack in your dock so you can view the recently used Applications.
+defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
+
+32) Change The Arrows In iTunes
+Normally the arrows in iTunes link to the music store, adding this command enables you to search your library. You need to click on the song first for the arrows to appear.
+defaults write com.apple.iTunes invertStoreLinks -bool YES
+
+33) Pin The Dock To The Left
+This command pins the dock to the left hand side of the screen. I’m not sure what happens if you have the dock on the left or right edge. Replace start with middle to revert.
+defaults write com.apple.dock pinning -string start
+
+34) Pin The Dock To The Right
+Exactly the same as above except it pins the dock to the right hand side of the screen.
+defaults write com.apple.dock pinning -string end
+
+35) Play Star Wars Episode IV
+Using a simple telnet address you Terminal will connect in and play Star Wars Episode IV in its ASCII glory.
+telnet towel.blinkenlights.nl
+
+36) Quicklook A File
+Quicklook is a great little application in Leopard. The command lets you quicklook a file right in Terminal. First you need to change the folder by using the “cd” command and then the folder you want. To enable this command to work you need to type the file name exactly.
+qlmanage -p "Jaguar Aqua Graphite.jpg"
+
+37) Disable The Spotlight Icon
+This command removes the spotlight icon. Type 755 to re-enable it, instead of 0.
+sudo chmod 0 /System/Library/CoreServices/Spotlight.app
+killall Spotlight
+
+38) Remove The Stripes In List View
+A simple hack that removes the alternating stripes in list view in finder.
+defaults write com.apple.finder FXListViewStripes -bool FALSE
+killall Finder
+
+39) Turn The Menu Bar White
+If you don’t like the menu bar in its cool transparent glory you can change it so it appears white. This requires a password and you will need to restart you mac.
+sudo defaults write /System/Library/LaunchDaemons/com.apple.WindowServer 'EnvironmentVariables' -dict 'CI_NO_BACKGROUND_IMAGE' 1
+
+40) Turn The Menu Bar Grey
+If you don’t like the white version of the menu bar you can change it so it appears gret.
+sudo defaults write /System/Library/LaunchDaemons/com.apple.WindowServer 'EnvironmentVariables' -dict 'CI_NO_BACKGROUND_IMAGE' 0
+
+41) Revert The Menu Bar Back To Default
+If you prefer the transparent menu bar and you want it back type the following into Terminal.
+sudo defaults delete /System/Library/LaunchDaemons/com.apple.WindowServer 'EnvironmentVariables'
+
+42) Set The Expanded Print Dialogue As Default
+If you want access to a lot of the extra print menus on by default you can use the following command to enable you to do this. Requires restart.
+defaults write -g PMPrintingExpandedStateForPrint -bool TRUE
+
+43) Set The Expanded Save Dialogue As Default
+Similar as the print dialogue this sets the save dialogue to the expanded view as default. Requires restart.
+defaults write -g NSNavPanelExpandedStateForSaveMode -bool TRUE
+
+44) Set The Screen Saver As The Wallpaper
+This command sets the currently selected screen saver as the desktop background. Use command + c or . to stop while in Terminal. Alternatively you can use wallsaver.
+/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background
+
+45) Set The History Limit In Safari To A Number Of Items
+If you don’t want a massive history you can set it to a limited number of items. Change the number to suit.
+defaults write com.apple.Safari WebKitHistoryItemLimit 2000
+
+46) Set The History Limit In Safari To A Number Of Days
+Similar to the hack above you can set the number of days Safari keeps its history.
+defaults write com.apple.Safari WebKitHistoryAgeInDaysLimit 30
+
+47) Show Hidden Files In Finder
+A lot of the files in Finder are hidden. This is probably a wise choice by Apple as there are countless things you can screw up. But if you want to take a look at how many there are and what they are you can show them within Finder. Be careful as these files are needed by the system, if you screw something up don’t come complaining. Repeat the command with false to revert. The image above, click for larger version, show the amount of files there actually is, with these hidden there is only 4 shown normally.
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
+48) Skip Disk Image Verification
+If you want to save some time you can skip the disk image verification for a disk image. Potentially risky as a whole load of things could go wrong without you knowing.
+com.apple.frameworks.diskimages skip-verify TRUE
+
+49) Show SubFolders In Graphical Format In Terminal
+This is a very cool little hack that enables you to show an ASCII graphical view of sub folders. Use the cd command to change to a directory other wise the command will list every folder. For more information look here.
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//–/g’ -e ’s/^/ /’ -e ’s/-/|/’
+
+50) Speed Up Dialogue Boxes
+Most dialogue boxes have a cool animation effect that looks cool. If you want to speed this up you can change the speed at which is renders so it appears almost instantly. The default is 0.2.
+defaults write NSGlobalDomain NSWindowResizeTime 0.01

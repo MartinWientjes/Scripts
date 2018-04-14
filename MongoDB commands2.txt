@@ -1,0 +1,13 @@
+mongoimport --db test --collection Looncodes --drop --file /Users/martin/MW/Developer/Python/Upload/mwLoonCodes2.json
+db.Looncodes.find().forEach(fucntion(doc){print("Looncode: "+ doc.grossWageElementNetDefHMap)})
+db.Looncodes.find().forEach(fucntion(doc){print(doc.grossWageElementNetDefHMap})
+
+
+
+
+from pymongo import MongoClient
+client = MongoClient()
+db = client.test
+cursor = db.Looncodes.find()
+for document in cursor:
+    print(document)

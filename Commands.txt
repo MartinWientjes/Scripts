@@ -1,0 +1,742 @@
+sudo rsync -aE --recursive --progress --times --delete /Users/martin/MW/Fotos/ /Volumes/R5_Foto_Archief/Fotos/
+
+sudo rsync -aE --recursive --progress --times /Users/ /Volumes/R5_Backup_iMac/Users/
+
+
+/usr/local/bin/diff -rq /Users/martin/Documents/MW/Fotos /Volumes/Nieuw/Photos
+========================================================================
+Housekeeping from cli        http://www.thexlab.com/faqs/maintscripts.html
+sudo periodic daily weekly monthly
+
+========================================================================
+/usr/local/bin/diff -rq /Users/martin/Music/iTunes/iTunes\ Media/Music /Volumes/iTunes_music/Music
+
+sudo rsync -aE --recursive --progress --times --dry-run /Volumes/iTunes_music/Music /Users/martin/Music/iTunes/iTunes\ Media/Music
+sudo rsync -aE --recursive --progress --times /Volumes/iTunes_music/Music /Users/martin/Music/iTunes/iTunes\ Media/Music
+
+sudo rsync -aE --recursive --progress --times --dry-run /Users/martin/Music/iTunes/iTunes\ Media/Music /Volumes/iTunes_music/Music
+
+cd /Volumes/iTunes_music/Music
+cd /Users/martin/Music/iTunes/iTunes\ Media/Music
+
+find . -iname "* 1.m4a" -type f -print
+find . -iname "* 1.m4a" -type f -delete
+
+find . -iname "._*.m4a" -type f -print
+find . -iname "._*.m4a" -type f -delete
+
+find . -iname "._*.m4a" -type f -exec rm -f {} \;
+========================================================================
+
+You can use applescript to do so and there's much more to explore. (add music to special playlist, etc.)
+
+for example, you need to add file /User/username/myMusic/my.mp3 to lib, create a script file named add.scpt
+
+		tell application "iTunes"
+		    add alias ((path to home folder as string) & "myMusic:my.mp3")
+		end tell
+run command:
+
+		osascript add.scpt
+
+========================================================================
+disk space
+Command Line Disk Usage Utilities: df and du
+
+df    displays disk usage information based on file system (ie: entire drives, attached media, etc)
+df -h
+du -sh ~
+du -sh *
+du -k * | sort -n
+du -ck * | sort -rn | head -11
+
+du -s /Library/Caches/* | sort -n
+========================================================================
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+clang-format -style=llvm -dump-config > .clang-format
+
+========================================================================
+TimeMachine
+
+man tmutil
+
+tmutil status
+tmutil destinationinfo
+tmutil setdestination
+tmutil removedestination
+tmutil addexclusion
+tmutil startbackup
+tmutil startbackup --auto
+tmutil stopbackup
+tmutil restore
+tmutil compare
+tmutil latestbackup
+tmutil listbackups
+tmutil machinedirectory
+tmutil calculatedrift
+tmutil uniquesize
+tmutil inheritbackup
+tmutil enablelocal
+tmutil disablelocal
+tmutil snapshot
+
+sudo tmutil delete [path to machine name]
+sudo tmutil delete /Volumes/BackupDisk/Backups.backupdb/oldmachine
+
+
+192:~ martin$ tmutil destinationinfo
+====================================================
+Name          : R5_TimeMachine
+Kind          : Network
+URL           : afp://Martin@N5550._afpovertcp._tcp.local./R5_TimeMachine
+Mount Point   : /Volumes/R5_TimeMachine-1
+ID            : 87D30701-FBC4-41F3-AC78-B510AD0BED5E
+
+========================================================================
+# Create symbolic link
+cd /usr/local/bin/
+sudo ln -s /Applications/Julia.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
+ls -Al
+
+
+# ========================================================================
+# Rsync
+
+rsync --checksum --dry-run  --recursive --progress --extended-attributes --times /Users/martin/Documents/MW/Fotos/ /Volumes/Nieuw/Photos/
+
+http://www.tecmint.com/rsync-local-remote-file-synchronization-commands/
+========================================================================
+diff -rq /Users/martin/Documents/MW/Fotos /Volumes/Nieuw/Photos
+
+========================================================================
+remove duplcate photos
+
+
+========================================================================
+Hidden files aanzetten
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
+killall Finder
+
+uitzetten
+defaults write com.apple.finder AppleShowAllFiles False
+
+killall Finder
+
+========================================================================
+shebang line
+https://en.wikipedia.org/wiki/Shebang_(Unix)
+
+Starting a Script With #!
+
+It is called a shebang or a "bang" line.
+It is nothing but the absolute path to the Bash interpreter.
+It consists of a number sign and an exclamation point character (#!), followed by the full path to the interpreter such as /bin/bash.
+
+All scripts under Linux execute using the interpreter specified on a first line Almost all bash scripts often begin with #!/bin/bash (assuming that Bash has been installed in /bin) This ensures that Bash will be used to interpret the script, even if it is executed under another shell. The shebang was introduced by Dennis Ritchie between Version 7 Unix and 8 at Bell Laboratories. It was then also added to the BSD line at Berkeley .
+Ignoring An Interpreter Line (shebang)
+
+If you do not specify an interpreter line, the default is usually the /bin/sh. But, it is recommended that you set #!/bin/bash line.
+
+#!/bin/bash
+#!/usr/bin/python
+#/usr/bin/env python
+
+#!/usr/local/bin/sbcl --script
+    (write-line "Hello, World!")
+
+========================================================================
+Remove hidden files on USB stick
+Volume name vcab be found in
+cd /
+cd volumes
+ls
+.
+
+find . -iname '*.CR2'              // iname = case in-sensitive
+
+find / -name "*.CR2" -print
+
+ls -lahR ~/Documents/MW/Fotos/
+
+========================================================================
+IO Commands
+ ioreg -p IOUSB -l -w 0
+
+========================================================================
+ # Update App Store apps
+sudo softwareupdate -i -a
+
+========================================================================
+Brew
+#Installeer Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Update Homebrew (Cask) & packages
+brew update
+brew upgrade
+brew doctor
+
+# Update npm & packages
+npm install npm -g
+npm update -g
+
+# Update Ruby & gems
+sudo gem update —system
+sudo gem update
+
+========================================================================
+sudo softwareupdate -i -a;
+brew update;
+brew upgrade --all;
+brew cleanup;
+npm install npm -g;
+npm update -g;
+sudo gem update --system;
+sudo gem update;
+conda update -y conda;
+conda update -y anaconda;
+conda update -y --all --no-update-deps;
+pip install --upgrade pip;
+pip3 install --upgrade pip3;
+pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U;
+pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U;
+========================================================================
+Environment variables can go in another dotfile:
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$DOTFILES_DIR/bin"
+export EDITOR="subl -w"
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
+# Tell grep to highlight matches
+export GREP_OPTIONS='—color=auto'
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell
+
+========================================================================
+PS1=\[\033]0;\W\007\]\[\]\n\[\]\t \[\]\u\[\] at \[\]\h\[\] in \[\]\w$(prompt_git "\[\] on \[\]" "\[\]")\n\[\]-> \[\]
+
+========================================================================
+# How to force empty Trash on your Mac using Terminal
+sudo rm -rf ~/.Trash/*
+
+========================================================================
+Aliases
+http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
+========================================================================
+env
+echo $PATH
+PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+
+========================================================================
+# .bash_profile example
+# https://gist.github.com/paulocheque/3667381
+========================================================================
+#Tech Tip: Running rsync over multiple threads
+https://www.linkedin.com/pulse/20140731160907-45133456-tech-tip-running-rsync-over-multiple-threads
+========================================================================
+diskutil list
+
+# http://osxdaily.com/2013/05/13/mount-unmount-drives-from-the-command-line-in-mac-os-x/
+
+========================================================================
+# launchctl lets you interact with the OS X init script system
+launchctl
+========================================================================
+# Top 30 Nmap Command Examples For Sys/Network Admins
+
+========================================================================
+#Network Mapper
+
+nmap 192.168.2.100
+nmap 192.168.2.*
+
+http://www.cyberciti.biz/networking/nmap-command-examples-tutorials/
+
+========================================================================
+conda update -y conda
+conda update -y anaconda
+conda update -y --all --no-update-deps
+pip install --upgrade pip
+pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U
+========================================================================
+# pip
+pip list --outdated | sed 's/(.*//g' | xargs pip install -U
+
+http://stackoverflow.com/questions/2720014/upgrading-all-packages-with-pip
+
+========================================================================
+MACPORTS
+port installed
+port version					#version
+sudo port install nmap
+sudo port clean --all vile
+port outdated					#Show all ports which actually need updating
+sudo port upgrade outdated		#Upgrading outdated ports
+sudo port upgrade gnome
+sudo port -n upgrade gnome		#not to upgrade a port's dependencies
+sudo port selfupdate			#Updating your ports tree
+
+https://guide.macports.org/#using.port.selfupdate
+
+========================================================================
+35 Linux Find Commands Examples
+
+Through this article we are sharing our day-to-day Linux find command experience and its usage in the form of examples. In this article we will show you the most used 35 Find Commands examples in Linux. We have divided the section into Five parts from basic to advance usage of find command.
+
+- Part I: Basic Find Commands for Finding Files with Names
+- Part II: Find Files Based on their Permissions
+- Part III: Search Files Based On Owners and Groups
+- Part IV: Find Files and Directories Based on Date and Time
+- Part V: Find Files and Directories Based on Size
+- Part VI: Find Multiple Filenames in Linux
+
+Part I – Basic Find Commands for Finding Files with Names
+
+1. Find Files Using Name in Current Directory
+
+Find all the files whose name is tecmint.txt in a current working directory.
+
+# find . -name tecmint.txt
+./tecmint.txt
+
+2. Find Files Under Home Directory
+
+Find all the files under /home directory with name tecmint.txt.
+
+# find /home -name tecmint.txt
+/home/tecmint.txt
+
+3. Find Files Using Name and Ignoring Case
+
+Find all the files whose name is tecmint.txt and contains both capital and small letters in /home directory.
+
+# find /home -iname tecmint.txt
+./tecmint.txt
+./Tecmint.txt
+
+4. Find Directories Using Name
+
+Find all directories whose name is Tecmint in / directory.
+
+# find / -type d -name Tecmint
+/Tecmint
+
+5. Find PHP Files Using Name
+
+Find all php files whose name is tecmint.php in a current working directory.
+
+# find . -type f -name tecmint.php
+./tecmint.php
+
+6. Find all PHP Files in Directory
+
+Find all php files in a directory.
+
+# find . -type f -name "*.php"
+./tecmint.php
+./login.php
+./index.php
+
+Part II – Find Files Based on their Permissions
+
+7. Find Files With 777 Permissions
+
+Find all the files whose permissions are 777.
+
+# find . -type f -perm 0777 -print
+
+8. Find Files Without 777 Permissions
+
+Find all the files without permission 777.
+
+# find / -type f ! -perm 777
+
+9. Find SGID Files with 644 Permissions
+
+Find all the SGID bit files whose permissions set to 644.
+
+# find / -perm 2644
+
+10. Find Sticky Bit Files with 551 Permissions
+
+Find all the Sticky Bit set files whose permission are 551.
+
+# find / -perm 1551
+
+11. Find SUID Files
+
+Find all SUID set files.
+
+# find / -perm /u=s
+
+12. Find SGID Files
+
+Find all SGID set files.
+
+# find / -perm /g=s
+
+13. Find Read Only Files
+
+Find all Read Only files.
+
+# find / -perm /u=r
+
+14. Find Executable Files
+
+Find all Executable files.
+
+# find / -perm /a=x
+
+15. Find Files with 777 Permissions and Chmod to 644
+
+Find all 777 permission files and use chmod command to set permissions to 644.
+
+# find / -type f -perm 0777 -print -exec chmod 644 {} \;
+
+16. Find Directories with 777 Permissions and Chmod to 755
+
+Find all 777 permission directories and use chmod command to set permissions to 755.
+
+# find / -type d -perm 777 -print -exec chmod 755 {} \;
+
+17. Find and remove single File
+
+To find a single file called tecmint.txt and remove it.
+
+# find . -type f -name "tecmint.txt" -exec rm -f {} \;
+
+18. Find and remove Multiple File
+
+To find and remove multiple files such as .mp3 or .txt, then use.
+
+# find . -type f -name "*.txt" -exec rm -f {} \;
+OR
+# find . -type f -name "*.mp3" -exec rm -f {} \;
+
+19. Find all Empty Files
+
+To file all empty files under certain path.
+
+# find /tmp -type f -empty
+
+20. Find all Empty Directories
+
+To file all empty directories under certain path.
+
+# find /tmp -type d -empty
+
+21. File all Hidden Files
+
+To find all hidden files, use below command.
+
+# find /tmp -type f -name ".*"
+
+Part III – Search Files Based On Owners and Groups
+
+22. Find Single File Based on User
+
+To find all or single file called tecmint.txt under / root directory of owner root.
+
+# find / -user root -name tecmint.txt
+
+23. Find all Files Based on User
+
+To find all files that belongs to user Tecmint under /home directory.
+
+# find /home -user tecmint
+
+24. Find all Files Based on Group
+
+To find all files that belongs to group Developer under /home directory.
+
+# find /home -group developer
+
+25. Find Particular Files of User
+
+To find all .txt files of user Tecmint under /home directory.
+
+# find /home -user tecmint -iname "*.txt"
+
+Part IV – Find Files and Directories Based on Date and Time
+
+26. Find Last 50 Days Modified Files
+
+To find all the files which are modified 50 days back.
+
+# find / -mtime 50
+
+27. Find Last 50 Days Accessed Files
+
+To find all the files which are accessed 50 days back.
+
+# find / -atime 50
+
+28. Find Last 50-100 Days Modified Files
+
+To find all the files which are modified more than 50 days back and less than 100 days.
+
+# find / -mtime +50 –mtime -100
+
+29. Find Changed Files in Last 1 Hour
+
+To find all the files which are changed in last 1 hour.
+
+# find / -cmin -60
+
+30. Find Modified Files in Last 1 Hour
+
+To find all the files which are modified in last 1 hour.
+
+# find / -mmin -60
+
+31. Find Accessed Files in Last 1 Hour
+
+To find all the files which are accessed in last 1 hour.
+
+# find / -amin -60
+
+Part V – Find Files and Directories Based on Size
+
+32. Find 50MB Files
+
+To find all 50MB files, use.
+
+# find / -size 50M
+
+33. Find Size between 50MB – 100MB
+
+To find all the files which are greater than 50MB and less than 100MB.
+
+# find / -size +50M -size -100M
+
+34. Find and Delete 100MB Files
+
+To find all 100MB files and delete them using one single command.
+
+# find / -size +100M -exec rm -rf {} \;
+
+35. Find Specific Files and Delete
+
+Find all .mp3 files with more than 10MB and delete them using one single command.
+
+# find / -type f -name *.mp3 -size +10M -exec rm {} \;
+
+
+========================================================================
+Vacumming your Address Book
+
+Apple’s a big fan of SQLite (which is awesome, because SQLite is awesome).  It’s used for a ton of things, including the data store for Address Book.
+
+Like most databases, however, SQLite dbs need to be VACUUM’d from time to time.  Without going into too much detail, one can think of a VACUUM as a defragmentation operation for the database.  Without it, the SQLite db can get a little bloated and large and things might start to slow down.  Here’s how to fix it:
+
+First, drop into Terminal and cd to the AddressBook Application Support directory
+
+$  cd ~/Library/Application Support/AddressBook
+
+Next, BACKUP YOUR ADDRESS BOOK!!!!!
+
+$ cp AddressBook-v22.abcddb AddressBook-v22.abcddb.backup
+
+Fire up sqlite and VACUUM away.
+
+$ sqlite3 AddressBook-v22.abcddb
+
+SQLite version 3.6.18
+Enter “.help” for instructions
+Enter SQL statements terminated with a “;”
+sqlite>VACUUM;
+
+sqlite>exit;
+
+All done!  Your AddressBook should be smaller and things should be a bit zippier.
+========================================================================
+How to vacuum all sqlite databases - Mac OS X Hints
+find ~ $( getconf DARWIN_USER_CACHE_DIR ) -name *.db -exec sqlite3 {} "vacuum;" \; -print 2>&1 | grep -v missingfind ~
+
+========================================================================
+find ~ -iname "*.db" -type f -print -exec file {}; todo ............
+========================================================================
+
+Find your External Public IP Address in Mac OS X
+Your external IP address is what is broadcast to the world rather than your local network (behind a wireless router, for instance). This is easiest to find through a Terminal command a well:
+
+curl ipecho.net/plain ; echo
+
+or
+
+curl whatismyip.org
+This will instantly report back your external IP address. We covered this command when finding your external IP address in the past.
+========================================================================
+
+Find your IP Address via the Mac OS X Terminal
+This is how to find the IP address of your Mac through the Terminal, this is often the quickest way for those that are more technically inclined.
+
+Launch the Terminal located in /Applications/Utilities/
+Type the following command:
+ifconfig |grep inet
+
+You will see something that looks like this:
+inet6 ::1 prefixlen 128
+inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1
+inet 127.0.0.1 netmask 0xff000000
+inet6 fe80::fa1e:dfff:feea:d544%en1 prefixlen 64 scopeid 0x5
+inet 192.168.0.100 netmask 0xffffff00 broadcast 192.168.0.255
+
+Your IP address is usually next to the last entry of ‘inet’ and in this case is 192.168.0.100, an IP address is always in the format of x.x.x.x but it will never be 127.0.0.1 because that is your machines loopback address. Because you can always ignore 127.0.0.1, this guarantees that your IP address will be the other IP between ‘inet’ and ‘netmask’
+The other command line option is to use:
+ipconfig getifaddr en1
+which reports back only your en1 (usually wireless) IP address. You can change this to en0 for wired/ethernet too. I have heard ipconfig is not supported in all versions of Mac OS X so I did not recommend this as the first choice. However, using ipconfig you can also set your IP address from the command line.
+
+========================================================================
+Find Duplicate Files (based on size first, then MD5 hash)
+find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+Find Duplicate Files (based on size first, then MD5 hash)
+This dup finder saves time by comparing size first, then md5sum, it doesn t delete anything, just lists them.
+
+Alternatives
+
+>>> Fdupes -r .
+
+Find Duplicate Files (based on size first, then MD5 hash)
+If you have the fdupes command, you ll save a lot of typing. It can do recursive searches (-r,-R) and it allows you to interactively select which of the duplicate files found you wish to keep or delete.
+
+>>> Find -type f -exec md5sum '{}' ';' | sort | uniq --all-repeated=separate -w 33 | cut -c 35-
+Find Duplicate Files (based on MD5 hash)
+Calculates md5 sum of files. sort (required for uniq to work). uniq based on only the hash. use cut ro remove the hash from the result.
+
+>>> Find -type d -name ".svn" -prune -o -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type d -name ".svn" -prune -o -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+Find Duplicate Files, excluding .svn-directories (based on size first, then MD5 hash)
+Improvement of the command "Find Duplicate Files (based on size first, then MD5 hash)" when searching for duplicate files in a directory containing a subversion working copy. This way the (multiple dupicates) in the meta-information directories are ignored.
+Can easily be adopted for other VCS as well. For CVS i.e. change ".svn" into ".csv":
+>>> Find -type d -name ".csv" -prune -o -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type d -name ".csv" -prune -o -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+
+>>>find . -type f -exec md5 '{}' ';' | sort | uniq -f 3 -d | sed -e "s/.*(\(.*\)).*/\1/"
+
+
+>>>find -not -empty -type f -printf "%-30s'\t\"%h/%f\"\n" | sort -rn -t$'\t' | uniq -w30 -D | cut -f 2 -d $'\t' | xargs md5sum | sort | uniq -w32 --all-repeated=separate
+
+
+========================================================================
+scriptable image processing system
+man sips
+sips -Z 640 *.jpg --out ~/Desktop/Small/
+
+========================================================================
+Command to mount TIme Capsule Drive
+mount_afp afp://<user>:<password>@<ip of TC>/<diskname> /Volumes/foo
+
+========================================================================
+#https://gist.github.com/bzerangue/dca8fc2d63309ba2bd9f
+#Verify and Repair Disk Permissions via Terminal (Mac OS X)
+# Verify Permissions
+diskutil verifyPermissions /
+
+#Repair Permissions
+diskutil repairPermissions /
+
+#Verify and Repair Volume via Terminal (Mac OS X)
+#Launch Terminal from your Dock, Utilities folder, or via an app launcher like Alfred. Once launched, type or paste in the following command.
+
+diskutil verifyVolume [drive name]
+
+#So, for your main hard drive, you could type or paste in something like:
+
+diskutil verifyVolume /
+
+#Or, if you have an external drive attached, you can type or paste in the following:
+
+diskutil verifyvolume /Volumes/[drive name]/
+
+#So for an external drive named “BackupStuff” you would enter:
+
+diskutil verifyvolume /Volumes/BackupStuff/
+
+#If you see no messages, then you can assume that diskutil hasn’t found any errors, and you can move on.
+#If, however, you get an error like “The volume Macintosh HD was found corrupt and needs to be repaired,”
+#then you can repair the drive using diskutil as well.
+#To repair the drive, you can issue the following command into Terminal:
+
+diskutil repairvolume /
+
+#Or, for that external drive as above:
+
+diskutil repairvolume /Volumes/BackupStuff/
+
+========================================================================
+#http://hints.macworld.com/article.php?story=20130404072518701
+#Find users that use the most disk space
+sudo -s du -sm /Users/* | sort -nr | head -n 10
+
+========================================================================
+#    https://medium.com/@waxzce/keeping-macos-clean-this-is-my-osx-brew-update-cli-command-6c8f12dc1731
+#    Keeping macOS clean: this is my osx/brew/[…] update CLI command
+#    I’m using OSX most of the time (you know, developer AND sales, plus being CEO) and this is the script I use to update it all the time, can be useful for some…
+#!/bin/bash
+brew update
+brew upgrade
+brew cleanup -s
+brew cask cleanup
+#now diagnotic
+brew doctor
+brew missing
+apm upgrade -c false
+/opt/bin/updateCCTF.sh && terminal-notifier -message “git pull done :-)” -title “CCTF up to date”
+echo “you can hit mas upgrade to upgrade theses apps from the app store:”
+mas outdated
+echo “install with: mas upgrade”
+npm update -g
+echo “did you think to launch gem update “
+echo “and pip ? pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs pip install -U “
+
+#     Ok, now I’ll explain it, line after each line:
+
+brew update
+#    Brew is the mainstream package manager for macOS, it provides all GNU softwares (many macOS tools like sed are outdated, GPL 2VS3 apple…), and many other CLI tools (I use it for mongoDB, redis, php, git, elixir…). If you don’t use it, it’s weird, you need to have it. The update command will update the local base of available packages and versions, to be able to know what is updatable.
+brew upgrade
+#    It actually installs new version of outdated packages
+brew cleanup -s
+#   By default, brew keeps all versions of the software, and you can link the one you want. This allow you to keep only linked versions (by default, the last) and save some disk space.
+brew cask cleanup
+#    brew cask is a brew extension for GUI and binary packages, some software are installed with it for simplicity of updates. This cleanup is cache cleanup for unfinished download. So, disk space savior.
+brew doctor
+brew missing
+#     Will show you any problem with your brew installation, it will help a lot to maintain a healthy system all the time.
+apm upgrade -c false
+#     I use Atom as main text editor and IDE. The apm command is a CLI package manager for atom plugins. Very helpful. This command upgrades all packages it can, no questions asked.
+/opt/bin/updateCCTF.sh && terminal-notifier -message “git pull done :-)” -title “CCTF up to date”
+#     This is Clever Cloud specific, we use a git based wiki as internal documentation, and we all keep an up-to-date version of it. Because it contains all we need (except credentials of course) to relaunch the whole infrastructure. Better to get manual with me all times terminal-notifier is able to easily print notification on macOS notification system (you can use homebrew to install it)
+echo “you can hit mas upgrade to upgrade theses apps from the app store:”
+#    mas outdated
+echo “install with: mas upgrade”
+#     The mac app store UI is so SLOW, buggy and unfriendly that I use mas to manage my software installed using the appstore. It’s a friendly CLI you can install via homebrew. I do not automatically install updates to prevent software restart in middle of something. But this way I will launch it if there is some outdated software.
+npm update -g
+#    This will update all the npm global installed binaries, like grunt, lessc or Clever Cloud CLI (I know we need a proper homebrew tap and package, it’s on the task list of someone on the team).
+echo “did you think to launch gem update “
+#    Reminder to launch a global installed gem update (rake, bundler…)…
+echo “and pip ? pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs pip install -U “
+#     Yeah, pip needs a proper pip upgrade command. I agree. Basically it’s used to upgrade VirtualEnv…
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+========================================================================
+

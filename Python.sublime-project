@@ -1,0 +1,35 @@
+{
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"python\" -u \"$file\""
+		}
+	],
+	"folders":
+	[
+		{
+			"path": "/Users/martin/Desktop/Julia"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "/anaconda/lib/python3.5"
+		},
+		{
+			"path": "/Users/martin/Documents/MW/PycharmProjects"
+		},
+		{
+			"path": "/Users/martin/Documents/MW/PythonProjects"
+		}
+	],
+	"settings":
+	{
+		"FuzzyFilePath":
+		{
+		}
+	}
+}

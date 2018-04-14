@@ -1,0 +1,24 @@
+-> brew help
+Example usage:
+  brew search [TEXT|/REGEX/]
+  brew (info|home|options) [FORMULA...]
+  brew install FORMULA...
+  brew update
+  brew upgrade [FORMULA...]
+  brew uninstall FORMULA...
+  brew list [FORMULA...]
+
+Troubleshooting:
+  brew config
+  brew doctor
+  brew install -vd FORMULA
+
+Developers:
+  brew create [URL [--no-fetch]]
+  brew edit [FORMULA...]
+  https://github.com/Homebrew/brew/blob/master/docs/Formula-Cookbook.md
+
+Further help:
+  man brew
+  brew help [COMMAND]
+  brew home

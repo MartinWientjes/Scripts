@@ -1,0 +1,14 @@
+Clear-RecycleBin
+Clear-History
+Start-Transcript
+Get-Command
+get-command -Noun Service
+get-command -Noun Service
+Get-Service
+
+Get-Help
+Get-Help Get-Service
+
+Get-Help Get-Service -Examples
+Get-Help Get-Service -Online
+
